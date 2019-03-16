@@ -42,8 +42,8 @@ class Card:
 
 ######################
 #### UNIT TESTING ####
-######################
-
-card1 = Card("Test", "Gives 1$", "This is basic train", 4)
-card1.print_all()
-card1.print()
+# ######################
+#
+# card1 = Card("Test", "Gives 1$", "This is basic train", 4)
+# card1.print_all()
+# card1.print()

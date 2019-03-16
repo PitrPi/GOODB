@@ -8,12 +8,12 @@ class Player:
     """
 
     def __init__(self,
-                 decks = {'draw': {},
-                          'used': {},
-                          'discard': {},
-                          'bought': {},
-                          'hand': {},
-                          'trash': {}},
+                 decks={'draw': {},
+                        'used': {},
+                        'discard': {},
+                        'bought': {},
+                        'hand': {},
+                        'trash': {}},
                  plr_status = {},
                  cards_to_draw = 5):
         """ this specify players deck
@@ -78,32 +78,40 @@ class Player:
              card):
         self = card.play(self)
 
+    def print_status(self):
+        print("Player has following cards in hand:")
+        print(self.decks['hand'])
+        print("There are {} card(s) in draw pile. There are {} card(s) in discard".format(
+            len(self.decks['draw']),
+            len(self.decks['discard'])))
+        return None
+
 ######################
 #### UNIT TESTING ####
 ######################
-print('P1: Initial setup')
-player1 = Player(decks={'draw': {'Copper': 7, 'Estate': 3},
-                        'hand': {},
-                        'discard': {}})
-player2 = Player(decks={'draw': {'Normal train': 7, 'Station expanstion': 1, 'Lay rails': 2},
-                        'hand': {},
-                        'discard': {}})
-player1.draw(4)
-print('P1: After drawing 4')
-print(player1.decks)
-player1.draw(4)
-print('P1: After drawing 8')
-print(player1.decks)
-player2.draw(3)
-print('P2: After drawing 3')
-print(player2.decks)
-player1.draw(4)
-print('P1: After drawing 12')
-print(player1.decks)
-player2.draw(5)
-print('P2: After drawing 8')
-print(player2.decks)
-player1.cleanup()
-print('P1: After Cleanup')
-print(player1.decks)
+# print('P1: Initial setup')
+# player1 = Player(decks={'draw': {'Copper': 7, 'Estate': 3},
+#                         'hand': {},
+#                         'discard': {}})
+# player2 = Player(decks={'draw': {'Normal train': 7, 'Station expanstion': 1, 'Lay rails': 2},
+#                         'hand': {},
+#                         'discard': {}})
+# player1.draw(4)
+# print('P1: After drawing 4')
+# print(player1.decks)
+# player1.draw(4)
+# print('P1: After drawing 8')
+# print(player1.decks)
+# player2.draw(3)
+# print('P2: After drawing 3')
+# print(player2.decks)
+# player1.draw(4)
+# print('P1: After drawing 12')
+# print(player1.decks)
+# player2.draw(5)
+# print('P2: After drawing 8')
+# print(player2.decks)
+# player1.cleanup()
+# print('P1: After Cleanup')
+# print(player1.decks)
 

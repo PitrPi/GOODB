@@ -1,6 +1,6 @@
 # import Card
 
-class Supply
+class Supply:
     """
     This method should generate set-up for the game.
     Decks of available cards and track their number
