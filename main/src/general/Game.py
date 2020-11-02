@@ -1,4 +1,4 @@
-from main.src.Player import Player
+from main.src.general.Player import Player
 
 class Game:
     """

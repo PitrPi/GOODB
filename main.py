@@ -1,6 +1,6 @@
-debug = True
 import random
 import Run
+debug = True
 
 def main():
     players = Run.setup_game()
