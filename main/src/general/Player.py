@@ -78,6 +78,22 @@ class PlayerGenericAction:
         self.player = Player
 
 
+class CardSpecificAction:
+    @classmethod
+    def draw(cls, player: Player, **kwargs):
+        player.draw(**kwargs)
+
+    @classmethod
+    def add_coin(cls, player: Player, number: int = 1):
+        player.current_status["current_coin"] += number
+
+    @classmethod
+    def add_buy(cls, player: Player, number: int = 1):
+        player.current_status["current_buy"] += number
+
+    @classmethod
+    def add_action(cls, player: Player, number: int = 1):
+        player.current_status["current_action"] += number
 
 
     ### DEPRECATED ###

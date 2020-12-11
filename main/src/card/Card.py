@@ -3,9 +3,9 @@ from __future__ import annotations
 from typing import List
 
 from Errors import NotPlayableError
-from main.src.general.Player import Player
+from main.config import CONFIG
 
-debug=True
+debug = CONFIG["debug"]
 
 class CardGenericAction:
     """
@@ -38,8 +38,8 @@ class Card:
               "Card text: {}\n".format(self.card_text),
               "Card function: {}".format(", ".join([x.__name__ for x in self.card_fcn])))
 
-    def buy(self, plr: Player):
-        if (plr.current_status.current_buy > self.card_cost_buys or
+    def buy(self, plr):
+        if (plr.current_status.current_buy < self.card_cost_buys or
                 plr.current_status.current_coin < self.card_cost):
             if debug:
                 print("Player cannot buy card")
@@ -54,13 +54,16 @@ class Card:
         When action is not possible trigger fallback
         (that can be ignore action or end evaluation)
         """
-        for fcn_idx in range(self.card_fcn):
+        for fcn in self.card_fcn:
             try:
-                self.card_fcn[fcn_idx](player)
+                fcn(player)
             except NotPlayableError:
                 print("Not playable")
 
-class CardSpecificAction
+
+
+
 
 if __name__ == '__main__':
-    copper = Card("Copper", "test", "Adds $1", 1)
+
+    copper = Card("Copper", CardSpecificAction.add_coin(p1), "Adds $1", 1)
